@@ -1,0 +1,11 @@
+2024-09-23 15:12:56,708 - mylogger.py - DEBUG - debug test
+2024-09-23 15:12:56,718 - mylogger.py - INFO - info test
+2024-09-23 15:12:56,718 - mylogger.py - WARNING - warning!
+2024-09-23 15:15:39,501 - mylogger.py - DEBUG - debug test
+2024-09-23 15:15:39,501 - mylogger.py - INFO - info test
+2024-09-23 15:15:39,501 - mylogger.py - WARNING - warning!
+2024-09-23 15:15:39,501 - mylogger.py - ERROR - error!!!!!!!!!!!!!!!!!!
+2024-09-23 15:28:40,763 - mylogger.py - DEBUG - debug test
+2024-09-23 15:28:40,764 - mylogger.py - INFO - info test
+2024-09-23 15:28:40,764 - mylogger.py - WARNING - warning!
+2024-09-23 15:28:40,764 - mylogger.py - ERROR - error!!!!!!!!!!!!!!!!!!

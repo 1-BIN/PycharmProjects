@@ -1,5 +1,5 @@
-import cx_Oracle
 import csv
+import cx_Oracle
 
 conn = cx_Oracle.connect("member", "member", "127.0.0.1:1521/xe")
 dict_list = []

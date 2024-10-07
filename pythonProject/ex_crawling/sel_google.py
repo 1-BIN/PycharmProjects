@@ -1,9 +1,11 @@
+import os
+import time
+import urllib.request as req
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
-import os
-import urllib.request as req
+
 from ex_util.file import file_path
+
 query = "수달"
 url = f"https://www.google.com/search?q={query}"
 driver = webdriver.Chrome()

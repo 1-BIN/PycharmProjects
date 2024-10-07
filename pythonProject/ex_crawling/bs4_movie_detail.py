@@ -1,8 +1,9 @@
 #bs4_movie에서 저장한 csv파일에서 movie_detial정보 읽어오기
 import csv
+import re
 import requests
 from bs4 import BeautifulSoup
-import re
+
 url = "http://m.cine21.com"
 
 #csv 파일 읽기

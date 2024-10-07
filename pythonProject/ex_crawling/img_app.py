@@ -1,7 +1,9 @@
+import threading
 import tkinter as tk
 from tkinter import scrolledtext
+
 from crawling import get_img
-import threading
+
 
 def search_data():
     # 입력 검색어

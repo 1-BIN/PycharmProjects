@@ -1,6 +1,6 @@
 import requests
-from bs4 import BeautifulSoup
 import urllib.request as req
+from bs4 import BeautifulSoup
 
 url = "http://m.cine21.com/movie/boxoffice/history"
 res = requests.get(url)

@@ -1,6 +1,8 @@
+import os
+import time
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, CallbackQueryHandler
-from telegram import  InlineKeyboardButton, InlineKeyboardMarkup
-import time, os
+
 API_KEY = '7183918209:AAE9tQxHKuBO3KOablRc30XpIZDbomUSo-k'
 updater = Updater(token=API_KEY, use_context=True)
 def show_btn(update, context):

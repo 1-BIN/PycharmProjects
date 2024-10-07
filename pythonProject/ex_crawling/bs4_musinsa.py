@@ -1,6 +1,7 @@
+import re
 import requests
 from bs4 import BeautifulSoup
-import re
+
 url = "https://www.musinsa.com/mz/community-info?sort=uid&orderby=desc&p=1"
 #403오류가 납니다. 잘못된 접근. 브라우저로 접근하지 않았기 때문.
 #개발자툴 > 네트워크 > header > ~info > user agent가 나의 접근 브라우저.

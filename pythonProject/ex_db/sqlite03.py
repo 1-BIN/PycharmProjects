@@ -1,6 +1,7 @@
-import sqlite3
-import requests
 import json
+import requests
+import sqlite3
+
 conn = sqlite3.connect("mydb.db")
 cur = conn.cursor()
 sql = """

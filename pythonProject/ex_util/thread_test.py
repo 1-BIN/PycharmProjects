@@ -1,6 +1,7 @@
-import tkinter as tk
-import time
 import threading
+import time
+import tkinter as tk
+
 
 def long_task():
     time.sleep(5)   #해당 작업이 오래걸리기 때문에, 스레드를 만들어줍니다.

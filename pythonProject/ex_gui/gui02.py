@@ -1,6 +1,8 @@
-from tkinter import *
 # pip install pillow    이미지 리사이징, 변경 등을 도와주는 라이브러리입니다.
 from PIL import Image, ImageTk
+from tkinter import *
+
+
 def move_left(event):
     print('왼쪽')
     canvas.move(item, -20, 0)

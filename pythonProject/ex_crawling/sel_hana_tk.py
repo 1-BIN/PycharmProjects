@@ -1,7 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 url = "https://www.hanatour.com/package/international"
 # 백그라운드에서 실행되도록
 option = webdriver.ChromeOptions()

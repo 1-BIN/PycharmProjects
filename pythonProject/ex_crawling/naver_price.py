@@ -1,8 +1,10 @@
-import requests
 import cx_Oracle
-from mylogger import make_logger
-from apscheduler.schedulers.blocking import BlockingScheduler
 import pytz
+import requests
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+from mylogger import make_logger
+
 seoul = pytz.timezone("Asia/Seoul")
 log = make_logger("naver.log", "naver_price.py")
 sql_merge = """

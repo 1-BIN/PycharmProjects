@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
-from python_base.luck import make_lotto3
 
+from python_base.luck import make_lotto3
 
 app = Tk()
 app.geometry("200x100")

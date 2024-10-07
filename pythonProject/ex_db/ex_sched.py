@@ -1,5 +1,6 @@
-from datetime import datetime
 import pytz
+from datetime import datetime
+
 seoul = pytz.timezone("Asia/Seoul")
 from apscheduler.schedulers.blocking import BlockingScheduler
 # interval 반복적으로 실행

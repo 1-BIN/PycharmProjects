@@ -1,7 +1,7 @@
-import requests
-from bs4 import BeautifulSoup
-import urllib.request as req
 import os
+import requests
+import urllib.request as req
+from bs4 import BeautifulSoup
 
 # image download
 #req.urlretrieve('다운로드할이미지의경로','로컬저장경로')

@@ -1,11 +1,12 @@
 #pip install selenium
 #pip install chromedriver_autoinstaller
-from selenium import webdriver
 import chromedriver_autoinstaller
 import time
+from bs4 import BeautifulSoup
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from bs4 import BeautifulSoup
+
 # 브라우저 드라이버 설치
 chromedriver_autoinstaller.install(True)
 # 브라우저 오픈

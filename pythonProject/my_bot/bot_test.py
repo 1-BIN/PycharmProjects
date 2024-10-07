@@ -1,6 +1,8 @@
 # pip install python-telegram-bot==13.11
+import os
+import time
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
-import time, os
+
 API_KEY = '7183918209:AAE9tQxHKuBO3KOablRc30XpIZDbomUSo-k'
 updater = Updater(token=API_KEY, use_context=True)
 f = None

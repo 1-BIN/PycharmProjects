@@ -1,6 +1,7 @@
-import requests
 import cx_Oracle
 import datetime
+import requests
+
 #1. 오라클에서 테이블을 생성합니다.
 conn = cx_Oracle.connect("member", "member", "localhost:1521/xe")
 print(conn.version) #잘 연결 됐는지 확인...

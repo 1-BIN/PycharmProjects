@@ -1,0 +1,20 @@
+## 무시 폴더
+pythonProject/ex_crawling/고래상어
+pythonProject/ex_crawling/범고래
+pythonProject/ex_crawling/향유고래
+pythonProject/ml/dental_image/test/cured
+pythonProject/ml/dental_image/test/decayed
+pythonProject/ml/dental_image/test/healthy
+pythonProject/ml/dental_image/train/cured
+pythonProject/ml/dental_image/train/decayed
+pythonProject/ml/dental_image/train/healthy
+pythonProject/ml/imageNet
+pythonProject/ml/split_whale/test/고래상어
+pythonProject/ml/split_whale/test/범고래
+pythonProject/ml/split_whale/test/향유고래
+pythonProject/ml/split_whale/train/고래상어
+pythonProject/ml/split_whale/train/범고래
+pythonProject/ml/split_whale/train/향유고래
+pythonProject/ml/whale/고래상어
+pythonProject/ml/whale/범고래
+pythonProject/ml/whale/향유고래

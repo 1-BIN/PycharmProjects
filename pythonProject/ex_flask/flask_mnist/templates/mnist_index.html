@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Classifier</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>MNIST 숫자 분류기</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file" accept="image/*">
+        <button type="submit">이미지 업로드</button>
+    </form>
+
+    <h2>이미지 미리보기</h2>
+    <img id="preview" src="" alt="Image preview" style="max-width: 200px; display: none;">
+
+    <h2>예측 결과</h2>
+    <p>정답 값: <span id="result"></span></p>
+    <p>확률: <span id="confidence"></span></p>
+
+    <script>
+        $(document).ready(function () {
+            // 파일 입력 시 이미지 미리보기
+            $('#file-input').on('change', function (e) {
+                var file = e.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#preview').attr('src', e.target.result);
+                        $('#preview').show();
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            });
+            //폼 submit
+            $("#upload-form").on('submit', function(e){
+            e.preventDefault();
+            var formData = new FormData();
+            var fileInput = $("#file-input")[0].files[0];
+            formData.append('file', fileInput);
+
+            $.ajax({
+                type: "POST"
+                ,url: "/predict"
+                ,data: formData
+                ,contentType: false
+                ,processData: false
+                ,success:function(res){
+                    console.log(res);
+                    $("#result").text(res.class);
+                    $("#confidence").text(res.pred.toFixed(3));
+                },error: function(error){
+                    console.log(error);
+                }
+            });
+            });
+        });
+    </script>
+</body>
+</html>

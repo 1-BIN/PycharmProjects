@@ -6,11 +6,12 @@ from bs4 import BeautifulSoup
 from datetime import date, timedelta, datetime
 from datetime import datetime
 import re
+import cx_Oracle
 
 today = date.today()
 #db 연결
-# conn = cx_Oracle.connect("member", "member", "127.0.0.1:1521/xe")
-# cur = conn.cursor()     # .cursor: db 작업을 가능하게 합니다.
+conn = cx_Oracle.connect("onebin", "BiNiBaMi", "127.0.0.1:1521/xe")
+cur = conn.cursor()     # .cursor: db 작업을 가능하게 합니다.
 
 #웹크롤링
 url = "https://coinness.com/article"
@@ -38,29 +39,48 @@ while True:
 
 # 2. 마지막 페이지에 있는 오늘의 첫 기사까지 수집합니다.
 # (1) 수집할 내용은 고유번호, 날짜, 시간, 제목, 요약내용, 상세링크, 언론사
-article = soup.select('.kXHocr > a')
-print(article)
-# -고유번호 만들기 수집시간날짜시간
-now = str(datetime.now())
-onum = int(re.sub("[^0-9]+", '', now))
-print(onum)
-# 날짜
-soup = BeautifulSoup(driver.page_source, "html.parser")
-article = soup.select_one('.kXHocr > a')
-article_date_str = page_last_article.select_one('.glLXQX').text[5:18]
-article_date = datetime.strptime(article_date_str, "%Y년 %m월 %d일").date()
-# 시간
+article = soup.select('.kXHocr a')
+count = 1
+for dtl in reversed(article):
+    now = str(datetime.now())
+    onum = int(re.sub("[^0-9]+", '', now)[:8] + str(count).zfill(4))
+    article_dt = datetime.strptime(dtl.select_one('.glLXQX').text[5:18], "%Y년 %m월 %d일").date()  #날짜
+    article_tm = dtl.select_one('.glLXQX span').text        #시간
+    article_tt = dtl.select_one('.JpxIZ h3').text           #제목
+    article_con = dtl.select_one('.JpxIZ p').text           #요약내용
+    article_url = dtl.get('href')                           #링크
+    article_jn = str(dtl.get('href')).split(".")[1]         #언론사(eng)
 
-# 제목
+    old_news_sql = f"""
+        SELECT article_url
+        FROM news
+        WHERE article_url = '{article_url}'
+    """
+    cur.execute(old_news_sql)
+    old_new_url_list = cur.fetchall()
+    print(old_new_url_list)
+    # if old_new_url_list
 
-# 요약내용
-
-# 상세링크
-
-# 언론사
 
 
 
-# (2) 고유번호 생성
-# (3) 링크가 중복된다면 수집하지 않습니다
 
+    # insert_data = """
+    #     INSERT INTO news(onum
+    #                     , article_dt
+    #                     , article_tm
+    #                     , article_tt
+    #                     , article_con
+    #                     , article_url
+    #                     , article_jn )
+    #     VALUES(:1, :2, :3, :4, :5, :6, :7)
+    # """
+    # cur.execute(insert_data, ( onum
+    #                            ,article_dt
+    #                            ,article_tm
+    #                            ,article_tt
+    #                            ,article_con
+    #                            ,article_url
+    #                            ,article_jn))
+#     count = count+1
+# conn.commit()

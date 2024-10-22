@@ -10,3 +10,6 @@ print(today1)
 print(formatted)
 print(now)
 
+created_at = '2024-10-22T12:48:48+09:00'
+date_created_at = datetime.strptime(created_at[:10], "%Y-%m-%d").date()
+print(date_created_at)
